@@ -1,0 +1,266 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home.master.cs" Inherits="NTCcustomerportal.Home" %>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <!-- START: Head-->
+    <head>
+        <meta charset="UTF-8">
+        <title>NTC Netsuite</title>
+        
+        <meta name="viewport" content="width=device-width,initial-scale=1"> 
+		<link rel="shortcut icon" href="dist/images/ficon.png" type="image/x-icon">		
+
+        <!-- START: Template CSS-->
+        <link rel="stylesheet" href="dist/vendors/bootstrap/css/bootstrap.min.css">
+		<link href="dist/tracking/Tracking.min.css" rel="stylesheet">		
+        <link rel="stylesheet" href="dist/vendors/jquery-ui/jquery-ui.min.css">
+        <link rel="stylesheet" href="dist/vendors/jquery-ui/jquery-ui.theme.min.css">
+        <link rel="stylesheet" href="dist/vendors/simple-line-icons/css/simple-line-icons.css">        
+        <link rel="stylesheet" href="dist/vendors/flags-icon/css/flag-icon.min.css">
+        <link rel="stylesheet" href="dist/vendors/materialdesign-webfont/css/materialdesignicons.min.css"/>   		
+		<link rel="stylesheet" href="dist/clock.css"> 	
+        <link rel="stylesheet" href="dist/vendors/sweetalert/sweetalert.css">	
+		<link rel="stylesheet" href="dist/vendors/fontawesome/css/all.min.css">
+		<link rel="stylesheet" href="dist/vendors/ionicons/css/ionicons.min.css"> 
+        <link rel="stylesheet" href="dist/vendors/linearicons/style.css"> 		
+
+        <link rel="stylesheet" href="dist/vendors/select2/css/select2.min.css"/>
+        <link rel="stylesheet" href="dist/vendors/select2/css/select2-bootstrap.min.css"/>	
+		
+        <!-- END Template CSS-->      
+
+        <!-- START: Custom CSS-->
+        <link rel="stylesheet" href="dist/css/main1.css"> 
+        <!-- END: Custom CSS-->
+       <asp:ContentPlaceHolder ID="head" runat="server">
+
+       </asp:ContentPlaceHolder>
+<style>
+   
+.MobileContent {
+
+display: none;
+text-align:center;
+
+}
+
+@media screen and (min-width: 400px) {
+      .MobileContent{
+display:block;
+}
+
+}
+</style>
+<style type="text/css">
+ body
+ {
+     margin-top:20px;
+
+ }
+
+.steps .step {
+    display: block;
+    width: 100%;
+    margin-bottom: 25px;
+    text-align: center
+}
+
+.steps .step .step-icon-wrap {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 80px;
+    text-align: center
+}
+
+.steps .step .step-icon-wrap::before,
+.steps .step .step-icon-wrap::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 50%;
+    height: 3px;
+    margin-top: -1px;
+    background-color: #e1e7ec;
+    content: '';
+    z-index: 1
+}
+
+.steps .step .step-icon-wrap::before {
+    left: 0
+}
+
+.steps .step .step-icon-wrap::after {
+    right: 0
+}
+
+.steps .step .step-icon {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #e1e7ec;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    color: #374250;
+    font-size: 38px;
+    line-height: 81px;
+    z-index: 5
+}
+
+.steps .step .step-title {
+    margin-top: 16px;
+    margin-bottom: 0;
+    color: #606975;
+    font-size: 14px;
+    font-weight: 500
+}
+
+.steps .step:first-child .step-icon-wrap::before {
+    display: none
+}
+
+.steps .step:last-child .step-icon-wrap::after {
+    display: none
+}
+
+.steps .step.completed .step-icon-wrap::before,
+.steps .step.completed .step-icon-wrap::after {
+    background-color: #0da9ef
+}
+
+
+.steps .step.completed .step-icon {
+    border-color: #0da9ef;
+    background-color: #0da9ef;
+    color: #fff
+}
+
+@media (max-width: 576px) {
+    .flex-sm-nowrap .step .step-icon-wrap::before,
+    .flex-sm-nowrap .step .step-icon-wrap::after {
+        display: none
+    }
+}
+
+@media (max-width: 768px) {
+    .flex-md-nowrap .step .step-icon-wrap::before,
+    .flex-md-nowrap .step .step-icon-wrap::after {
+        display: none
+    }
+}
+
+@media (max-width: 991px) {
+    .flex-lg-nowrap .step .step-icon-wrap::before,
+    .flex-lg-nowrap .step .step-icon-wrap::after {
+        display: none
+    }
+}
+
+@media (max-width: 1200px) {
+    .flex-xl-nowrap .step .step-icon-wrap::before,
+    .flex-xl-nowrap .step .step-icon-wrap::after {
+        display: none;
+    }
+}
+
+.bg-faded, .bg-secondary {
+    background-color: #f5f5f5 !important;
+}
+/*
+  #id1, #id2, #id3, #id4, #id5, #id6,.step-icon{
+    border-color: #0da9ef;
+    background-color: #0da9ef;
+    color: #fff
+}*/
+
+/*.step {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    text-align: center;
+}
+
+.step.completed {
+    background-color: #4CAF50;*/ /* Green */
+    /*color: white;
+}
+
+.step.current {
+    background-color: #2196F3;*/ /* Blue */
+    /*color: white;
+}*/
+    </style>
+    
+    </head>
+    <!-- END Head-->
+
+    <!-- START: Body-->    
+    <body id="main-container"  class="default semi-dark compact-menu">
+        <!-- START: Pre Loader-->
+    <div class="se-pre-con">
+      <div class="loader"></div>
+    </div>
+        <!-- END: Pre Loader-->
+
+         <!-- START: Header-->
+        <div id="header-fix" class="header fixed-top">
+            <div class="site-width">
+                <nav class="navbar navbar-expand-lg  p-0">
+                    <div class="navbar-header h-100 h4 mb-0 align-self-center logo-bar text-left" title="NTC Group">
+                        <a href="Calendar.html" class="horizontal-logo text-left">
+                            <img src="dist/images/NTC_Logo.jpg" alt="">
+                            <span class="font-weight-bold  align-self-center mb-0 ml-auto" style="color: #fff;">
+                                <img src="dist/images/NTC.jpg" alt="">
+                            </span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- END: Header-->
+        <!-- START: Main Content-->
+        <main>
+           
+             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                
+            </asp:ContentPlaceHolder>
+        </main>
+		<!-- START: Template JS-->
+        <script src="dist/vendors/jquery/jquery-3.3.1.min.js"></script>
+        <script src="dist/vendors/jquery-ui/jquery-ui.min.js"></script>
+        <script src="dist/vendors/moment/moment.js"></script>
+        <script src="dist/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>    
+        <script src="dist/vendors/slimscroll/jquery.slimscroll.min.js"></script>
+ 
+        <!-- START: Page Vendor JS-->
+        <script src="dist/vendors/sweetalert/sweetalert.min.js"></script>
+        <script src="dist/vendors/typeahead/handlebars-v4.5.3.js"></script>
+        <script src="dist/vendors/typeahead/typeahead.bundle.js"></script>
+        <script src="dist/js/typeahead.script.js"></script>	
+        <script src="dist/vendors/select2/js/select2.full.min.js"></script>
+        <!-- END: Page Vendor JS-->
+
+        <!-- START: Page Script JS-->
+        <script src="dist/js/select2.script.js"></script> 
+        <!-- END: Page Vendor JS-->
+
+        <!-- START: Page Script JS-->
+        <script src="dist/js/sweetalert.script1.js"></script>
+
+        <!-- END: Template JS-->
+
+        <!-- START: APP JS-->
+        <script src="dist/js/app.js"></script>
+        <script src="dist/Activitysearch.js"></script>			
+		
+        <!-- END: APP JS-->
+
+       
+
+    </body>
+
+    <!-- END: Body-->
+</html>
